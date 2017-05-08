@@ -14,10 +14,10 @@ class Employee extends Model
     
     public static function employeesForDropdown() {
 
-        $employees = Employee::orderBy('last_name', 'ASC')->get();
+        $employees = Employee::orderBy('id', 'ASC')->get();
         $employeesForDropdown = [];
         foreach($employees as $employee) {
-            $employeesForDropdown[$employee->id] = $employee->last_name.', '.$employee->first_name;
+            $employeesForDropdown[$employee->id] = $employee->first_name.', '.$employee->last_name .'=='.$employee->job_title;
         }
 
         return $employeesForDropdown;
