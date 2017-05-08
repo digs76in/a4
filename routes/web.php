@@ -11,42 +11,38 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+# Get route to show the home page for A4 application
+Route::get('/', 'TaskController@index');
 
-Route::get('/debug', function() {
+# Get route to show the form to add a new task
+Route::get('/tasks/new', 'TaskController@createNewTask');
 
-	echo '<pre>';
+# Post route to complete adding a new task
+Route::post('/tasks/new', 'TaskController@storeNewTask');
 
-	echo '<h1>Environment</h1>';
-	echo App::environment().'</h1>';
+# Get route to show a form to edit an existing task
+Route::get('/tasks/edit/{id}', 'TaskController@edit');
 
-	echo '<h1>Debugging?</h1>';
-	if(config('app.debug')) echo "Yes"; else echo "No";
+# Post route to process the form to save changes/edits to the task
+Route::post('/tasks/edit', 'TaskController@saveEdits');
 
-	echo '<h1>Database Config</h1>';
-    	echo 'DB defaultStringLength: '.Illuminate\Database\Schema\Builder::$defaultStringLength;
-    	/*
-	The following commented out line will print your MySQL credentials.
-	Uncomment this line only if you're facing difficulties connecting to the database and you
-        need to confirm your credentials.
-        When you're done debugging, comment it back out so you don't accidentally leave it
-        running on your production server, making your credentials public.
-        */
-	//print_r(config('database.connections.mysql'));
+# Get route to confirm deletion of task
+Route::get('/tasks/delete/{id}', 'TaskController@confirmDeletion');
 
-	echo '<h1>Test Database Connection</h1>';
-	try {
-		$results = DB::select('SHOW DATABASES;');
-		echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-		echo "<br><br>Your Databases:<br><br>";
-		print_r($results);
-	}
-	catch (Exception $e) {
-		echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-	}
+# Post route to actually delete the task
+Route::post('/tasks/delete', 'TaskController@delete');
 
-	echo '</pre>';
+# Get route to  show a form to edit an existing task assignment
+Route::any('/tasks/assign/', 'TaskController@showTaskAssignment');
 
-});
+# Any route to actually assign the task
+Route::any('/tasks/assign/{id}', 'TaskController@createTaskAssignment');
+
+# Any route to complete editing task assignment
+Route::any('/assign/edit/', 'TaskController@saveTaskAssignmentEdits');
+
+# Get route to confirm deletion of task assignment
+Route::get('/tasks/assign/delete/{id}', 'TaskController@confirmAssignmentDeletion');
+
+# Post route to complete deletion of task assignment
+Route::post('/assign/delete', 'TaskController@deleteAssignment');
