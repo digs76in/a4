@@ -30,7 +30,7 @@
             <label for='emps' class='control-label col-sm-2'>Assign to Muliple Employees <span class="asterisk">*</span></label>
             
             <div class='col-sm-10'>
-                <select name="emps[]" id="emps" multiple class="selectpicker" data-title="Select All That Apply" data-style="form-control" size="3" multiple>
+                <select name="emps[]" id="emps" multiple class="selectpicker" data-title="Select All That Apply" data-style="form-control" size="3">
 
                         @foreach($employeesForDropdown as $employee_id => $employeeName)                   
 
