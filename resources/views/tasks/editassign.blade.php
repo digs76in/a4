@@ -19,7 +19,7 @@
     <form method='POST' action='/assign/edit' class="form-horizontal">
 
         {{ csrf_field() }}
-        <input type='hidden' name='id' value="{{ $tasks->id}}"?>
+        <input type='hidden' name='id' value="{{ $tasks->id}}">
        
 
         <div>

@@ -57,7 +57,10 @@
           <tr>
             <th>Task Name</th>
             <th>Task Description</th>
-            <th>Task Due By</th>        
+            <th>Task Due By</th>  
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="myTable">

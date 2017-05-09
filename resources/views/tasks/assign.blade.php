@@ -25,7 +25,9 @@
                     <th>Task Name</th>
                     <th>Task Description</th>
                     <th>Task Due By</th>       
-                    <th>Assigned Employee Names</th>
+                    <th>Task Assignments</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="myTable">
@@ -51,8 +53,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>{{ $tasks->links() }} </td>
                     <td></td>
-                    <td> {{ $tasks->links() }} </td>
+                    <td></td>
                    
                 </tr>
           

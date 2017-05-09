@@ -60,11 +60,6 @@ a.active:link, a.active:visited, a.active:active, a.active:hover {
 
 /* Flash messages shown at the top of the page */
 .message {
-    /*width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    padding:5px;*/
     text-align:center;
     font-size:1em;
     background-color:yellow;

@@ -11,7 +11,7 @@
 
         {{ csrf_field() }}
 
-        <input type='hidden' name='id' value='{{ $task->id }}'?>
+        <input type='hidden' name='id' value='{{ $task->id }}'>
 
         <h2>Are you sure you want to delete assignment for this task: <em>{{ $task->name }}</em>?</h2>
 
